@@ -24,7 +24,12 @@ This is a conceptual service for credit negation and integration with credit bur
 	$ dotnet build
 	$ dotnet run --project ./NegativeInfoService.Web.API/NegativeInfoService.Web.API.csproj
 
-Open the browser and enter https://localhost:5001
+Open the browser and enter:
+
+* [GET] https://localhost:5001/api/negation/index to show all action negations
+* [GET] https://localhost:5001/api/negation/show/{id} to show specific negation
+* [POST] https://localhost:5001/api/negation/create to create a negation
+* [DELETE] https://localhost:5001/api/negation/delete to resolve a negation
 
 ## Unit test
 
