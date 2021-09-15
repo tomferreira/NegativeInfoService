@@ -10,7 +10,7 @@ namespace NegativeInfoService.Application.Interfaces
 
         Task<NegationViewModel> GetAsync(Guid id);
 
-        NegationViewModel Add(CreateNegationViewModel model);
+        Task<NegationViewModel> AddAsync(CreateNegationViewModel model);
 
         Task ResolveAsync(Guid id);
     }

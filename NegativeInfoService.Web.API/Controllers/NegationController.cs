@@ -47,7 +47,7 @@ namespace NegativeInfoService.Web.API.Controllers
         // Create a negation
         // POST: /api/negation/create
         [HttpPost]
-        public IActionResult Create([FromBody] CreateNegationViewModel model)
+        public async Task<IActionResult> Create([FromBody] CreateNegationViewModel model)
         {
             if (model == null)
             {
@@ -63,9 +63,13 @@ namespace NegativeInfoService.Web.API.Controllers
 
             try
             {
-                var newModel = _negationService.Add(model);
+                var newModel = await _negationService.AddAsync(model);
 
                 return CreatedAtRoute(nameof(Show), new { id = newModel.Id }, newModel);
+            }
+            catch (BusinessRuleException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {

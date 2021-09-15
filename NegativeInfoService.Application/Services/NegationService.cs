@@ -60,7 +60,7 @@ namespace NegativeInfoService.Application.Services
             };
         }
 
-        public NegationViewModel Add(CreateNegationViewModel model)
+        public async Task<NegationViewModel> AddAsync(CreateNegationViewModel model)
         {
             var negation = new Negation(
                 model.ClientId.Value, model.LegalDocument.Value, 
@@ -69,7 +69,8 @@ namespace NegativeInfoService.Application.Services
             _negationRepository.Add(negation);
             _negationRepository.SaveChanges();
 
-            _notificationQueue.NotifyInclusionAsync(negation);
+            // Notify a inclusion of negation to all bureaus
+            await _notificationQueue.NotifyInclusionAsync(negation);
 
             return new NegationViewModel()
             {
@@ -94,7 +95,8 @@ namespace NegativeInfoService.Application.Services
 
             _negationRepository.SaveChanges();
 
-            _notificationQueue.NotifyExclusionAsync(negation);
+            // Notify a exclusion of negation to all bureaus
+            await _notificationQueue.NotifyExclusionAsync(negation);
         }
     }
 }
