@@ -3,7 +3,7 @@ using System;
 
 namespace NegativeInfoService.Domain.Entities
 {
-    public class Negativation
+    public class Negation
     {
         public enum StatusType
         {
@@ -25,7 +25,7 @@ namespace NegativeInfoService.Domain.Entities
 
         public StatusType Status { get; private set; }
 
-        public Negativation(int clientId, long legalDocument, string bankTransitionId, 
+        public Negation(int clientId, long legalDocument, string bankTransitionId, 
             DateTime dueDate, float amountOwed)
         {
             ClientId = clientId;

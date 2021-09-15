@@ -49,7 +49,7 @@ namespace NegativeInfoService.Web.API
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "api/{controller=Negativation}/{action=Index}/{id?}");
+                    pattern: "api/{controller=Negation}/{action=Index}/{id?}");
             });
         }
     }

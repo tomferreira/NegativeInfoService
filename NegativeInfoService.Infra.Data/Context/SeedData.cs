@@ -13,17 +13,17 @@ namespace NegativeInfoService.Infra.Data.Context
                 serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
             {
                 // Exit if DB has been seeded
-                if (await context.Negativations.AnyAsync())
+                if (await context.Negations.AnyAsync())
                     return;
 
-                context.Negativations.AddRange(
-                    new Negativation(
+                context.Negations.AddRange(
+                    new Negation(
                         1,
                         71903286026,
                         "ITAU-3458-098-9872",
                         DateTime.Parse("2021-01-09"),
                         1000.10f),
-                    new Negativation(
+                    new Negation(
                         2,
                         11493925091,
                         "ITAU-3458-098-9872",

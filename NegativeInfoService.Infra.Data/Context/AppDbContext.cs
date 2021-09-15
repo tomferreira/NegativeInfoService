@@ -11,6 +11,6 @@ namespace NegativeInfoService.Infra.Data.Context
         {
         }
 
-        public DbSet<Negativation> Negativations { get; set; }
+        public DbSet<Negation> Negations { get; set; }
     }
 }

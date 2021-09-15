@@ -2,7 +2,7 @@
 
 namespace NegativeInfoService.Application.ViewModels
 {
-    public class NegativationViewModel
+    public class NegationViewModel
     {
         public Guid Id { get; set; }
 

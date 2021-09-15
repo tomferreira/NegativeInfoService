@@ -5,8 +5,8 @@ namespace NegativeInfoService.Domain.Interfaces
 {
     public interface IBureauNotificationQueue
     {
-        Task NotifyInclusionAsync(Negativation negativation);
+        Task NotifyInclusionAsync(Negation negation);
 
-        Task NotifyExclusionAsync(Negativation negativation);
+        Task NotifyExclusionAsync(Negation negation);
     }
 }

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace NegativeInfoService.Infra.Data.Repositories
 {
-    public class NegativationRepository : BaseRepository, INegativationRepository
+    public class NegationRepository : BaseRepository, INegationRepository
     {
-        public NegativationRepository(AppDbContext context)
+        public NegationRepository(AppDbContext context)
             : base(context)
         {
         }
 
-        public async Task<IEnumerable<Negativation>> AllAsync(Negativation.StatusType? status)
+        public async Task<IEnumerable<Negation>> AllAsync(Negation.StatusType? status)
         {
-            IQueryable<Negativation> query = _context.Negativations;
+            IQueryable<Negation> query = _context.Negations;
 
             if (status != null)
                 query.Where(n => n.Status == status);
@@ -26,20 +26,20 @@ namespace NegativeInfoService.Infra.Data.Repositories
             return await query.ToListAsync();
         }
 
-        public async Task<Negativation> GetAsync(Guid Id)
+        public async Task<Negation> GetAsync(Guid Id)
         {
-            return await _context.Negativations
+            return await _context.Negations
                 .FirstOrDefaultAsync(p => p.Id == Id);
         }
 
-        public void Add(Negativation negativation)
+        public void Add(Negation negation)
         {
-            _context.Negativations.Add(negativation);
+            _context.Negations.Add(negation);
         }
 
-        public void Delete(Negativation negativation)
+        public void Delete(Negation negation)
         {
-            _context.Negativations.Remove(negativation);
+            _context.Negations.Remove(negation);
         }
 
         public void SaveChanges()

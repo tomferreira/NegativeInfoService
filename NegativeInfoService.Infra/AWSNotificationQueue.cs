@@ -13,7 +13,7 @@ namespace NegativeInfoService.Infra
     public class AWSNotificationQueue : IBureauNotificationQueue
     {
         // TODO: Replace this code with a real topic ARN
-        private static string TOPIC_ARN = "arn:aws:sns:eu-west-2:XXXXXXXXXXX:NegativationBureauTopic";
+        private static string TOPIC_ARN = "arn:aws:sns:eu-west-2:XXXXXXXXXXX:NegationBureauTopic";
 
         private readonly IAmazonSimpleNotificationService _simpleNotificationService;
         private readonly ILogger<AWSNotificationQueue> _logger;
@@ -26,24 +26,24 @@ namespace NegativeInfoService.Infra
             _logger = logger;
         }
 
-        public Task NotifyInclusionAsync(Negativation negativation)
+        public Task NotifyInclusionAsync(Negation negation)
         {
-            return NotifyAsync(AWSRequestMessage.ActionType.Inclusion, negativation);
+            return NotifyAsync(AWSRequestMessage.ActionType.Inclusion, negation);
         }
 
-        public Task NotifyExclusionAsync(Negativation negativation)
+        public Task NotifyExclusionAsync(Negation negation)
         {
-            return NotifyAsync(AWSRequestMessage.ActionType.Exclusion, negativation);
+            return NotifyAsync(AWSRequestMessage.ActionType.Exclusion, negation);
         }
 
-        private async Task NotifyAsync(AWSRequestMessage.ActionType action, Negativation negativation)
+        private async Task NotifyAsync(AWSRequestMessage.ActionType action, Negation negation)
         {
             var message = new AWSRequestMessage()
             {
                 Action = action,
-                ClientId = negativation.ClientId,
-                LegalDocument = negativation.LegalDocument,
-                BankTransitionID = negativation.BankTransitionId
+                ClientId = negation.ClientId,
+                LegalDocument = negation.LegalDocument,
+                BankTransitionID = negation.BankTransitionId
             };
 
             var request = new PublishRequest

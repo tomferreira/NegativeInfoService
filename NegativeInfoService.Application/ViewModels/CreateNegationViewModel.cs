@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NegativeInfoService.Application.ViewModels
 {
-    public class CreateNegativationViewModel
+    public class CreateNegationViewModel
     {
         [Required(ErrorMessage = "Client ID is required")]
         public int? ClientId { get; set; }

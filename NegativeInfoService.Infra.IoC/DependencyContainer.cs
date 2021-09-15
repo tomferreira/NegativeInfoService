@@ -13,10 +13,10 @@ namespace NegativeInfoService.Infra.IoC
         public static void RegisterServices(IConfiguration configuration, IServiceCollection services)
         {
             // Services classes
-            services.AddScoped<INegativationService, NegativationService>();
+            services.AddScoped<INegationService, NegationService>();
 
             // Repositories classes
-            services.AddScoped<INegativationRepository, NegativationRepository>();
+            services.AddScoped<INegationRepository, NegationRepository>();
 
             // Queue
             services.AddSingleton<IBureauNotificationQueue, AWSNotificationQueue>();
