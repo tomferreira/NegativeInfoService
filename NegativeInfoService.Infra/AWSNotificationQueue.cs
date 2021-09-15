@@ -12,7 +12,7 @@ namespace NegativeInfoService.Infra
 {
     public class AWSNotificationQueue : IBureauNotificationQueue
     {
-        // Replace this id for a real topic ARN
+        // TODO: Replace this code with a real topic ARN
         private static string TOPIC_ARN = "arn:aws:sns:eu-west-2:XXXXXXXXXXX:NegativationBureauTopic";
 
         private readonly IAmazonSimpleNotificationService _simpleNotificationService;
